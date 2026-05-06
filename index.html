@@ -1080,6 +1080,16 @@
             font-weight: 900;
         }
 
+        .pricing-value.long-text {
+            font-size: clamp(1rem, 1.8vw, 1.6rem);
+            text-transform: uppercase;
+        }
+
+        .pricing-value.long-text span:not(.old-price-v2) {
+            white-space: normal !important;
+            display: block;
+        }
+
         .pricing-subtext {
             font-size: 16px;
             color: #FFFFFF;
@@ -3759,11 +3769,30 @@
 
         function updateCalculator(subs) {
             const num = parseInt(subs) || 0;
+            const elRange = document.getElementById('calc-range-text');
+            const pricingValues = document.querySelectorAll('.pricing-value');
+
+            if (num > 150000) {
+                if (elRange) elRange.textContent = "Acima de 150.000 assinantes";
+                pricingValues.forEach(pv => pv.classList.add('long-text'));
+                
+                const targets = ['calc-old-price', 'calc-monthly', 'calc-setup', 'calc-savings'];
+                targets.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        if (id === 'calc-old-price') el.textContent = ""; // Hide old price for consult
+                        else el.textContent = "Valor sob consulta";
+                    }
+                });
+                return;
+            }
+
+            pricingValues.forEach(pv => pv.classList.remove('long-text'));
+
             let data = CALC_DATA.find(d => num >= d.min && num <= d.max) || CALC_DATA[0];
             if (num > 140000) data = CALC_DATA[CALC_DATA.length - 1];
 
             const format = (v) => 'R$ ' + v.toLocaleString('pt-BR');
-            const elRange = document.getElementById('calc-range-text');
             if (elRange) elRange.textContent = `Faixa: ${data.min.toLocaleString('pt-BR')} a ${data.max.toLocaleString('pt-BR')} assinantes`;
 
             const targets = [
