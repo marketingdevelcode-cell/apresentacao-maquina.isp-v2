@@ -1,0 +1,51 @@
+# ============================================
+# .gitignore — Máquina ISP Presentation
+# ============================================
+
+# ⚠️ ARQUIVOS GRANDES — exceder 100MB bloqueia o push
+# GitHub rejeita arquivos acima de 100MB.
+# A imagem abaixo tem ~18MB e não é o problema principal,
+# mas boas práticas recomendam não versionar binários grandes.
+
+# Imagem muito grande (18.7 MB)
+images/ef331680-191f-411b-ab8d-5f7d8227d553.jpg
+"Apresentação Máquina ISP - Copia 3/images/ef331680-191f-411b-ab8d-5f7d8227d553.jpg"
+
+# ============================================
+# PASTA DUPLICADA (subpasta com mesmo nome do projeto)
+# Ela é uma cópia idêntica da raiz e duplica todos os arquivos.
+# Remova-a manualmente ou deixe-a ignorada aqui.
+# ============================================
+Apresentação Máquina ISP - Copia 3/
+
+# ============================================
+# Pastas vazias (css/ e javascript/ estão vazias)
+# Git não versiona pastas vazias por padrão.
+# ============================================
+
+# ============================================
+# Arquivos de sistema Windows
+# ============================================
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Arquivos temporários e de editor
+# ============================================
+*.tmp
+*.log
+.DS_Store
+.vscode/
+*.pyc
+__pycache__/
+
+# ============================================
+# Scripts de patch (temporários)
+# ============================================
+patch_slide3.py
+
+# ============================================
+# Versões antigas do HTML (arquivo de backup)
+# ============================================
+index_v4.html
