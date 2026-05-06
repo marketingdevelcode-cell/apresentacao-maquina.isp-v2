@@ -57,9 +57,13 @@
 
         /* Presentation Framework */
         .slides-container {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .slide {
@@ -74,7 +78,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 15px;
+            padding: 0;
             overflow: hidden;
         }
 
@@ -191,7 +195,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 2vh 4vw;
+            padding: 20px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -552,18 +556,18 @@
         }
 
         .slide-content-wrapper {
-            width: 100%;
-            height: 100%;
-            max-width: 1600px;
-            max-height: 900px;
+            width: 1920px;
+            height: 1080px;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 10;
             position: relative;
-            padding: 120px 60px 60px 60px;
-            /* Increased top padding to avoid header */
+            padding: 100px 120px 60px 120px;
+            /* transform is handled by JS for responsiveness */
+            transition: transform 0.3s ease-out;
         }
 
         /* 1920x1080 Container Logic */
@@ -1966,11 +1970,11 @@
             </div>
 
             <div class="slide-content-wrapper"
-                style="gap: 30px; justify-content: center; align-items: flex-start; text-align: left; padding-left: 5vw; width: 100%; z-index: 2; position: relative;">
+                style="gap: 30px; justify-content: center; align-items: flex-start; text-align: left; padding-left: 120px; z-index: 2; position: relative;">
                 <img src="images/Logo Principal - Versão Branco - Azul.png" alt="Máquina.ISP"
                     class="logo-main title-reveal" style="height: 45px; margin-bottom: 20px;">
                 <h1 class="title-reveal"
-                    style="max-width: 900px; margin-bottom: 30px; line-height: 1.2; font-size: clamp(1.4rem, 2.4vw, 2.8rem);">
+                    style="max-width: 900px; margin-bottom: 30px; line-height: 1.2; font-size: 46px;">
                     VOCÊ TRABALHA TODO DIA.<br>
                     <span style="color: var(--primary); text-shadow: 0 0 40px rgba(0, 87, 255, 0.4);">SEU PROVEDOR AINDA
                         DEPENDE<br>DE VOCÊ PARA TUDO.</span>
@@ -1993,10 +1997,10 @@
             <div class="noise-overlay"></div>
             <div class="glow-point" style="top: 20%; left: 10%;"></div>
 
-            <div class="slide-content-wrapper" style="flex-direction: row; align-items: center; justify-content: space-between; padding: 0 8vw; gap: 60px;">
+            <div class="slide-content-wrapper" style="flex-direction: row; align-items: center; justify-content: space-between; padding: 0 160px; gap: 60px;">
                 <!-- Left Content -->
                 <div class="split-left" style="flex: 1.2; text-align: left;">
-                    <h2 class="title-reveal" style="font-size: clamp(2.5rem, 4.5vw, 4.2rem); line-height: 1.1; margin-bottom: 40px; text-transform: uppercase; font-weight: 900;">
+                    <h2 class="title-reveal" style="font-size: 86px; line-height: 1.1; margin-bottom: 40px; text-transform: uppercase; font-weight: 900;">
                         ONDE A SUA<br>OPERAÇÃO<br><span style="color: var(--primary);">VAZA CAIXA</span><br>HOJE?
                     </h2>
                 </div>
@@ -2061,7 +2065,7 @@
             <div class="noise-overlay"></div>
             <div class="glow-point" style="top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.3;"></div>
 
-            <div class="slide-content-wrapper" style="padding-top: 70px;">
+            <div class="slide-content-wrapper">
                 <h2 class="title-reveal text-center"
                     style="font-size: clamp(1.2rem, 2vw, 1.7rem); margin-bottom: 56px; color: white; font-weight: 700; letter-spacing: -0.01em; text-transform: uppercase;">
                     Mais pessoas não resolvem o problema de escala.
@@ -2165,7 +2169,7 @@
                 }
             </style>
 
-            <div class="slide-content-wrapper" style="justify-content: space-evenly; padding-top: 80px;">
+            <div class="slide-content-wrapper" style="justify-content: space-evenly;">
                 <h2 class="title-reveal text-center" style="max-width: 1000px; margin-bottom: 20px;">Inteligência operando em cima dos seus sistemas.</h2>
 
                 <div class="ecosystem-visual"
@@ -2231,9 +2235,9 @@
         <section class="slide slide-light" id="slide-5" data-title="Agentes Máquina.ISP">
             <div class="grid-bg grid-bg-light"></div>
             <div class="slide-content-wrapper"
-                style="padding: 20px; justify-content: center; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; max-height: 95vh;">
+                style="padding: 40px; justify-content: center; display: flex; flex-direction: column; align-items: center;">
                 <h2 class="title-reveal text-center"
-                    style="max-width: 1500px; width: 100%; font-size: clamp(1.3rem, 2.4vw, 2.5rem); line-height: 1.2; margin-bottom: 25px; text-transform: uppercase; letter-spacing: -0.01em;">
+                    style="max-width: 1500px; width: 100%; font-size: 46px; line-height: 1.2; margin-bottom: 25px; text-transform: uppercase; letter-spacing: -0.01em;">
                     UMA FORÇA DE TRABALHO<br>
                     DIGITAL COMPLETA E<br>
                     ESPECIALIZADA NO SEU PROVEDOR.
@@ -2470,7 +2474,7 @@
         <section class="slide slide-light" id="slide-8" data-title="Painel de Comando">
             <div class="grid-bg grid-bg-light"></div>
             <div class="slide-content-wrapper"
-                style="width: 100%; max-width: 1400px; margin: 0 auto; padding-top: 40px; display: flex; flex-direction: column; align-items: center;">
+                style="display: flex; flex-direction: column; align-items: center;">
                 <div class="title-reveal text-center mb-10">
                     <span class="font-mono"
                         style="color: var(--primary); font-size: 0.8rem; letter-spacing: 0.2em; background: rgba(0, 87, 255, 0.1); padding: 6px 20px; border-radius: 50px; border: 1px solid rgba(0, 87, 255, 0.3); display: inline-block;">CONTROLE
@@ -2481,7 +2485,7 @@
                     Toda a operação na palma da sua mão.
                 </h2>
                 <div class="dashboard-mockup-container title-reveal"
-                    style="position: relative; width: 100%; max-width: 1100px; height: 50vh; background: #ffffff; border-radius: 12px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05); overflow: hidden; display: flex; flex-direction: column;">
+                    style="position: relative; width: 100%; max-width: 1100px; height: 540px; background: #ffffff; border-radius: 12px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05); overflow: hidden; display: flex; flex-direction: column;">
                     <div
                         style="height: 40px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; padding: 0 15px; gap: 8px;">
                         <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
@@ -2572,11 +2576,11 @@
                 style="position: absolute; top: 45%; left: 40%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, transparent 70%); transform: translate(-50%, -50%); z-index: 1; pointer-events: none;">
             </div>
             <div class="slide-content-wrapper"
-                style="gap: 20px; justify-content: center; align-items: flex-start; text-align: left; padding-left: 5vw; width: 100%; z-index: 2; position: relative;">
+                style="gap: 20px; justify-content: center; align-items: flex-start; text-align: left; padding-left: 120px; z-index: 2; position: relative;">
                 <img src="images/Logo Principal - Versão Branco - Azul.png" alt="Máquina.ISP"
                     class="logo-main title-reveal" style="height: 45px; margin-bottom: 20px;">
                 <h1 class="title-reveal"
-                    style="max-width: 800px; margin-bottom: 10px; line-height: 1.2; font-size: clamp(1.2rem, 1.8vw, 2.2rem); text-shadow: 0 0 40px rgba(0, 87, 255, 0.5);">
+                    style="max-width: 800px; margin-bottom: 10px; line-height: 1.2; font-size: 42px; text-shadow: 0 0 40px rgba(0, 87, 255, 0.5);">
                     INSTALE A MÁQUINA.</h1>
                 <p class="title-reveal font-mono"
                     style="color: var(--primary); letter-spacing: 0.1em; font-size: clamp(0.9rem, 1.1vw, 1.3rem); opacity: 0.9; text-transform: uppercase; max-width: 500px;">
@@ -2797,8 +2801,8 @@
             <style>
                 .diag-slide {
                     position: relative;
-                    width: 100%;
-                    height: 100%;
+                    width: 1920px;
+                    height: 1080px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -3882,7 +3886,35 @@
                     slideMap.classList.remove('active');
                 }
             });
+
+            // Responsive Scaling Initialization
+            initResponsiveScaling();
         });
+
+        function initResponsiveScaling() {
+            const targetWidth = 1920;
+            const targetHeight = 1080;
+            const wrappers = document.querySelectorAll('.slide-content-wrapper');
+            
+            function updateScale() {
+                const winW = window.innerWidth;
+                const winH = window.innerHeight;
+                
+                // Calculate scale to fit within viewport
+                const scale = Math.min(winW / targetWidth, winH / targetHeight);
+                
+                wrappers.forEach(wrapper => {
+                    wrapper.style.transform = `scale(${scale})`;
+                    wrapper.style.transformOrigin = 'center center';
+                });
+            }
+            
+            window.addEventListener('resize', updateScale);
+            updateScale();
+            
+            // Re-run after a short delay to ensure correct dimensions after layout
+            setTimeout(updateScale, 100);
+        }
     </script>
 </body>
 
